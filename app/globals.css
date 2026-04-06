@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* === STITCH Design System: Deep Sea & Neon === */
+  --color-background: #0b1326;
+  --color-surface: #0b1326;
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+  --color-surface-variant: #2d3449;
+  --color-surface-tint: #4cd6ff;
+
+  --color-on-background: #dae2fd;
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #bbc9cf;
+
+  --color-primary: #a4e6ff;
+  --color-primary-fixed: #b7eaff;
+  --color-primary-fixed-dim: #4cd6ff;
+  --color-primary-container: #00d1ff;
+  --color-on-primary: #003543;
+  --color-on-primary-fixed: #001f28;
+  --color-on-primary-fixed-variant: #004e60;
+  --color-on-primary-container: #00566a;
+  --color-inverse-primary: #00677f;
+
+  --color-secondary: #ceffdf;
+  --color-secondary-fixed: #50ffaf;
+  --color-secondary-fixed-dim: #00e293;
+  --color-secondary-container: #01f5a0;
+  --color-on-secondary: #003921;
+  --color-on-secondary-fixed: #002111;
+  --color-on-secondary-fixed-variant: #005232;
+  --color-on-secondary-container: #006b43;
+
+  --color-tertiary: #e4d6ff;
+  --color-tertiary-fixed: #e9ddff;
+  --color-tertiary-fixed-dim: #d1bcff;
+  --color-tertiary-container: #cbb5ff;
+  --color-on-tertiary: #3c0090;
+  --color-on-tertiary-fixed: #23005b;
+  --color-on-tertiary-fixed-variant: #5700c9;
+  --color-on-tertiary-container: #6000dd;
+
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  --color-outline: #859399;
+  --color-outline-variant: #3c494e;
+  --color-inverse-surface: #dae2fd;
+  --color-inverse-on-surface: #283044;
+
+  /* Fonts */
+  --font-headline: "Lexend", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  background-color: #0b1326;
+  color: #dae2fd;
+  font-family: "Inter", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Headline font utility */
+.font-headline {
+  font-family: "Lexend", sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Signature gradient (primary CTA) */
+.signature-gradient {
+  background: linear-gradient(135deg, #a4e6ff 0%, #00d1ff 100%);
+}
+
+/* Glass panel (glassmorphism) */
+.glass-panel {
+  background: rgba(45, 52, 73, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Glass effect (lighter) */
+.glass-effect {
+  background: rgba(45, 52, 73, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #060e20; }
+::-webkit-scrollbar-thumb { background: #3c494e; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #a4e6ff; }
+
+/* Slider — Stitch style */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: #2d3449;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(164, 230, 255, 0.5);
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Active sidebar link */
+.sidebar-active {
+  background: linear-gradient(to right, rgba(164, 230, 255, 0.1), transparent);
+  border-left: 4px solid #00d1ff;
+  color: #00d1ff;
+  font-weight: 700;
+}
+
+/* Smooth transitions */
+*, *::before, *::after {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
 }
